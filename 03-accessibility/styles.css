@@ -283,6 +283,10 @@ body.modal-open {
   flex-direction: column;
   transform: scale(0.95) translateY(20px);
   transition: transform var(--transition-normal);
+  /* Reset dialog element defaults */
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .modal-overlay.is-open .modal {

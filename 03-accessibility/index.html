@@ -38,10 +38,9 @@
 
     <!-- Modal Dialog -->
     <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
-      <div
+      <dialog
         class="modal"
         id="modal"
-        role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
@@ -249,10 +248,9 @@
             </div>
 
             <!-- Success Message -->
-            <div
+            <output
               id="form-success"
               class="form-success"
-              role="status"
               aria-live="polite"
               tabindex="-1"
               hidden
@@ -271,7 +269,7 @@
                 />
               </svg>
               <span>Thank you! Your message has been sent successfully.</span>
-            </div>
+            </output>
           </form>
         </div>
 
@@ -283,7 +281,7 @@
             Send Message
           </button>
         </div>
-      </div>
+      </dialog>
     </div>
 
     <!-- Live Region for Screen Reader Announcements -->
