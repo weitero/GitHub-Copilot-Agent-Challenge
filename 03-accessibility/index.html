@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible Modal Dialog Component</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="main-content">
+      <h1>Accessible Modal Dialog Demo</h1>
+      <p>
+        This page demonstrates a WCAG 2.1 AA compliant modal dialog component
+        with proper accessibility features.
+      </p>
+
+      <section aria-labelledby="features-heading">
+        <h2 id="features-heading">Accessibility Features</h2>
+        <ul>
+          <li>Focus trapping within modal</li>
+          <li>ESC key to close</li>
+          <li>Click outside to close</li>
+          <li>Proper ARIA attributes for screen readers</li>
+          <li>Visible focus indicators</li>
+          <li>Form with proper labels and error handling</li>
+        </ul>
+      </section>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="open-modal-btn"
+        aria-haspopup="dialog"
+      >
+        Open Contact Form
+      </button>
+    </main>
+
+    <!-- Modal Dialog -->
+    <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+      <div
+        class="modal"
+        id="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+      >
+        <div class="modal-header">
+          <h2 id="modal-title" class="modal-title">Contact Us</h2>
+          <button
+            type="button"
+            class="modal-close-btn"
+            id="modal-close-btn"
+            aria-label="Close dialog"
+          >
+            <svg
+              aria-hidden="true"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p id="modal-description" class="modal-description">
+            Please fill out the form below to get in touch with us. All fields
+            marked with an asterisk (*) are required.
+          </p>
+
+          <form id="contact-form" class="form" novalidate>
+            <!-- Name Field -->
+            <div class="form-group">
+              <label for="name" class="form-label">
+                Full Name <span class="required" aria-hidden="true">*</span>
+                <span class="visually-hidden">(required)</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                required
+                autocomplete="name"
+                aria-describedby="name-error"
+                aria-invalid="false"
+              />
+              <span
+                id="name-error"
+                class="form-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group">
+              <label for="email" class="form-label">
+                Email Address <span class="required" aria-hidden="true">*</span>
+                <span class="visually-hidden">(required)</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                required
+                autocomplete="email"
+                aria-describedby="email-hint email-error"
+                aria-invalid="false"
+              />
+              <span id="email-hint" class="form-hint"
+                >We'll never share your email with anyone else.</span
+              >
+              <span
+                id="email-error"
+                class="form-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Phone Field (Optional) -->
+            <div class="form-group">
+              <label for="phone" class="form-label">
+                Phone Number <span class="optional">(optional)</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-input"
+                autocomplete="tel"
+                aria-describedby="phone-hint phone-error"
+                aria-invalid="false"
+              />
+              <span id="phone-hint" class="form-hint"
+                >Format: (123) 456-7890</span
+              >
+              <span
+                id="phone-error"
+                class="form-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Subject Field -->
+            <div class="form-group">
+              <label for="subject" class="form-label">
+                Subject <span class="required" aria-hidden="true">*</span>
+                <span class="visually-hidden">(required)</span>
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                class="form-select"
+                required
+                aria-describedby="subject-error"
+                aria-invalid="false"
+              >
+                <option value="">Select a subject...</option>
+                <option value="general">General Inquiry</option>
+                <option value="support">Technical Support</option>
+                <option value="sales">Sales Question</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+              <span
+                id="subject-error"
+                class="form-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Message Field -->
+            <div class="form-group">
+              <label for="message" class="form-label">
+                Message <span class="required" aria-hidden="true">*</span>
+                <span class="visually-hidden">(required)</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-textarea"
+                rows="4"
+                required
+                aria-describedby="message-hint message-error"
+                aria-invalid="false"
+              ></textarea>
+              <span id="message-hint" class="form-hint"
+                >Minimum 10 characters required.</span
+              >
+              <span
+                id="message-error"
+                class="form-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Newsletter Checkbox -->
+            <div class="form-group form-group-checkbox">
+              <input
+                type="checkbox"
+                id="newsletter"
+                name="newsletter"
+                class="form-checkbox"
+              />
+              <label for="newsletter" class="form-label-checkbox">
+                Subscribe to our newsletter for updates
+              </label>
+            </div>
+
+            <!-- Form Error Summary -->
+            <div
+              id="form-error-summary"
+              class="form-error-summary"
+              role="alert"
+              aria-live="assertive"
+              tabindex="-1"
+              hidden
+            >
+              <h3 class="form-error-summary-title">
+                <svg
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Please correct the following errors:
+              </h3>
+              <ul id="error-list" class="form-error-list"></ul>
+            </div>
+
+            <!-- Success Message -->
+            <div
+              id="form-success"
+              class="form-success"
+              role="status"
+              aria-live="polite"
+              tabindex="-1"
+              hidden
+            >
+              <svg
+                aria-hidden="true"
+                width="24"
+                height="24"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>Thank you! Your message has been sent successfully.</span>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="modal-cancel-btn">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-primary" form="contact-form">
+            Send Message
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Region for Screen Reader Announcements -->
+    <div
+      id="live-region"
+      class="visually-hidden"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <script src="modal.js"></script>
+  </body>
+</html>
