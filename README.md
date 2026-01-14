@@ -17,3 +17,11 @@ displays it, and updates fields while demonstrating string concatenation,
 template literals, arithmetic with age, and boolean logic for student status.
 
 _Generated using GPT-5.2-Codex_
+
+## 05 Functions and Methods
+
+A JavaScript utility module demonstrating various function definitions including
+standard functions, default parameters, arrow functions, and higher-order
+functions for basic mathematical operations.
+
+_Generated using Gemini 3 Pro (Preview)_
