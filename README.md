@@ -33,3 +33,12 @@ pass/fail status, and course eligibility using control flow structures like
 pass/fail logic, switch statements for feedback, and ternary operators.
 
 _Generated using Gemini 3 Pro (Preview)_
+
+## 07 Arrays and Loops
+
+A JavaScript function that analyzes an array of student grade objects to
+calculate statistics including highest/lowest scores, average, pass count, and
+identifies above-average students using both traditional for loops and for...of
+loops.
+
+_Generated using Claude Sonnet 4.5_
