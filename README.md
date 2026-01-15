@@ -25,3 +25,11 @@ standard functions, default parameters, arrow functions, and higher-order
 functions for basic mathematical operations.
 
 _Generated using Gemini 3 Pro (Preview)_
+
+## 06 Making Decisions with JS
+
+A JavaScript program that evaluates student scores to determine letter grades,
+pass/fail status, and course eligibility using control flow structures like
+pass/fail logic, switch statements for feedback, and ternary operators.
+
+_Generated using Gemini 3 Pro (Preview)_
