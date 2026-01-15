@@ -45,7 +45,7 @@ function analyzeGrades(students) {
   return {
     highestScore: highest,
     lowestScore: lowest,
-    averageScore: parseFloat(average.toFixed(2)),
+    averageScore: Number.parseFloat(average.toFixed(2)),
     passedCount: passedCount,
     totalStudents: students.length,
     aboveAverageStudents: aboveAverage,
